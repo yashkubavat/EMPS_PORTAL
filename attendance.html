@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - Employee Portal</title>
+    <link rel="stylesheet" href="css/style-emp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- CSS-only theme toggle checkbox -->
+    <input type="checkbox" id="themeToggle" class="theme-toggle-checkbox">
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-user-circle"></i>
+                <h1>Employee Portal</h1>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <span id="headerUserName">Welcome, John Smith</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <label for="themeToggle" class="theme-toggle-label" title="Toggle dark mode">
+                <i class="fas fa-sun"></i>
+                <span>/</span>
+                <i class="fas fa-moon"></i>
+            </label>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-profile">
+                <div class="profile-picture" id="profilePicture">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h3 id="sidebarUserName">John Smith</h3>
+                    <p id="sidebarUserRole">Software Engineer</p>
+                    <p id="sidebarUserDept">Engineering Department</p>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item">
+                    <a href="employee.html#profile" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="leave.html" class="nav-link">
+                        <i class="fas fa-calendar-plus"></i>
+                        <span>Leave Management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="salary.html" class="nav-link">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Salary</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="tasks.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                        <span class="badge" id="taskBadge">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content app">
+        <div class="content-wrapper">
+            <section class="content-section active" id="attendanceSection">
+                <div class="section-header">
+                    <h2>Attendance</h2>
+                    <div class="attendance-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">This Month</span>
+                            <span class="summary-value" id="monthlyAttendance">22/25</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">This Week</span>
+                            <span class="summary-value" id="weeklyAttendance">4/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance-content">
+                    <div class="attendance-card">
+                        <h3>Recent Attendance</h3>
+                        <div class="attendance-list" id="attendanceList">
+                            <div class="attendance-item">
+                                <span class="attendance-date">Mon, Aug 5</span>
+                                <span class="attendance-status present">present</span>
+                            </div>
+                            <div class="attendance-item">
+                                <span class="attendance-date">Tue, Aug 6</span>
+                                <span class="attendance-status absent">absent</span>
+                            </div>
+                            <div class="attendance-item">
+                                <span class="attendance-date">Wed, Aug 7</span>
+                                <span class="attendance-status present">present</span>
+                            </div>
+                            <div class="attendance-item">
+                                <span class="attendance-date">Thu, Aug 8</span>
+                                <span class="attendance-status present">present</span>
+                            </div>
+                            <div class="attendance-item">
+                                <span class="attendance-date">Fri, Aug 9</span>
+                                <span class="attendance-status present">present</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attendance-calendar">
+                        <h3>This Month's Calendar</h3>
+                        <div class="calendar-grid" id="calendarGrid">
+                            <!-- Static example -->
+                            <div class="calendar-day present">1</div>
+                            <div class="calendar-day present">2</div>
+                            <div class="calendar-day absent">3</div>
+                            <div class="calendar-day present">4</div>
+                            <div class="calendar-day present">5</div>
+                            <div class="calendar-day absent">6</div>
+                            <div class="calendar-day present">7</div>
+                            <!-- Add remaining days manually -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Notification Container (static) -->
+    <div id="notificationContainer" class="notification-container"></div>
+</body>
+</html>

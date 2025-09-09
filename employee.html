@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee User Panel</title>
+    <link rel="stylesheet" href="css/style-emp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- CSS-only theme toggle checkbox -->
+    <input type="checkbox" id="themeToggle" class="theme-toggle-checkbox">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-user-circle"></i>
+                <h1>Employee Portal</h1>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <span id="headerUserName">Welcome, John</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <label for="themeToggle" class="theme-toggle-label" title="Toggle dark mode">
+                <i class="fas fa-sun"></i>
+                <span>/</span>
+                <i class="fas fa-moon"></i>
+            </label>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-profile">
+                <div class="profile-picture" id="profilePicture">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h3 id="sidebarUserName">John Smith</h3>
+                    <p id="sidebarUserRole">Software Engineer</p>
+                    <p id="sidebarUserDept">Engineering Department</p>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active">
+                    <a href="#profile" class="nav-link" data-section="profile">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="leave.html" class="nav-link">
+                        <i class="fas fa-calendar-plus"></i>
+                        <span>Leave Management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="salary.html" class="nav-link">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Salary</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="tasks.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                        <span class="badge" id="taskBadge">3</span>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#password" class="nav-link" data-section="password">
+                        <i class="fas fa-key"></i>
+                        <span>Change Password</span>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content app">
+        <div class="content-wrapper">
+            <!-- Profile Section -->
+            <section class="content-section active" id="profileSection">
+                <div class="section-header">
+                    <h2>My Profile</h2>
+                    <button class="btn btn-primary" id="editProfileBtn">
+                        <i class="fas fa-edit"></i>
+                        Edit Profile
+                    </button>
+                </div>
+
+                <div class="profile-content">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar" id="mainProfilePicture">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h3 id="mainUserName">John Smith</h3>
+                                <p id="mainUserRole">Software Engineer</p>
+                                <p id="mainUserDept">Engineering Department</p>
+                            </div>
+                        </div>
+
+                        <div class="profile-details">
+                            <div class="detail-group">
+                                <label>Employee ID</label>
+                                <p id="employeeId">EMP001</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Email</label>
+                                <p id="userEmail">john.smith@company.com</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Phone</label>
+                                <p id="userPhone">+1 (555) 123-4567</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Department</label>
+                                <p id="userDepartment">Engineering</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Position</label>
+                                <p id="userPosition">Software Engineer</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Joining Date</label>
+                                <p id="userJoiningDate">January 15, 2023</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Location</label>
+                                <p id="userLocation">New York, NY</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Attendance Section
+            <section class="content-section" id="attendanceSection">
+                <div class="section-header">
+                    <h2>Attendance</h2>
+                    <div class="attendance-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">This Month</span>
+                            <span class="summary-value" id="monthlyAttendance">22/25</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">This Week</span>
+                            <span class="summary-value" id="weeklyAttendance">4/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attendance-content">
+                    <div class="attendance-card">
+                        <h3>Recent Attendance</h3>-->
+                        <!-- <div class="attendance-list" id="attendanceList">
+                            Attendance items will be populated by JavaScript -->
+                        <!-- </div>
+                    </div>
+
+                    <div class="attendance-calendar">
+                        <h3>This Month's Calendar</h3>
+                        <div class="calendar-grid" id="calendarGrid">
+                            Calendar will be populated by JavaScript -->
+                        <!-- </div>
+                    </div>
+                </div>
+            </section>  --> 
+
+            <!-- Tasks Section
+            <section class="content-section" id="tasksSection">
+                <div class="section-header">
+                    <h2>My Tasks</h2>
+                    <div class="task-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="pending">Pending</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                </div>
+
+                <div class="tasks-content">
+                    <div class="tasks-list" id="tasksList">
+                        Tasks will be populated by JavaScript -->
+                    <!-- </div>
+                </div>
+            </section> -->
+
+
+
+            <!-- Change Password Section
+            <section class="content-section" id="passwordSection">
+                <div class="section-header">
+                    <h2>Change Password</h2>
+                </div>
+
+                <div class="password-content">
+                    <div class="password-card">
+                        <form class="password-form" id="passwordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password *</label>
+                                <input type="password" id="currentPassword" name="currentPassword" required>
+                                <span class="error-message" id="currentPasswordError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newPassword">New Password *</label>
+                                <input type="password" id="newPassword" name="newPassword" required>
+                                <span class="error-message" id="newPasswordError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password *</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                <span class="error-message" id="confirmPasswordError"></span>
+                            </div>
+                            
+                            <div class="password-requirements">
+                                <h4>Password Requirements:</h4>
+                                <ul>
+                                    <li id="reqLength">At least 8 characters</li>
+                                    <li id="reqUppercase">One uppercase letter</li>
+                                    <li id="reqLowercase">One lowercase letter</li>
+                                    <li id="reqNumber">One number</li>
+                                    <li id="reqSpecial">One special character</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-key"></i>
+                                    Change Password
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section> -->
+        </div>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <!-- <div class="modal-overlay" id="editProfileModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Edit Profile</h2>
+                <button class="modal-close" id="closeEditModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="edit-profile-form" id="editProfileForm">
+                <div class="form-group">
+                    <label for="editName">Full Name *</label>
+                    <input type="text" id="editName" name="name" required>
+                    <span class="error-message" id="editNameError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editEmail">Email *</label>
+                    <input type="email" id="editEmail" name="email" required>
+                    <span class="error-message" id="editEmailError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editPhone">Phone</label>
+                    <input type="tel" id="editPhone" name="phone">
+                    <span class="error-message" id="editPhoneError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editLocation">Location</label>
+                    <input type="text" id="editLocation" name="location">
+                    <span class="error-message" id="editLocationError"></span>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div> -->
+
+    <!-- No JavaScript: CSS-only theme and UI -->
+</body>
+</html> 

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks - Employee Portal</title>
+    <link rel="stylesheet" href="css/style-emp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-user-circle"></i>
+                <h1>Employee Portal</h1>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <span id="headerUserName">Welcome, John</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-profile">
+                <div class="profile-picture" id="profilePicture">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h3 id="sidebarUserName">John Smith</h3>
+                    <p id="sidebarUserRole">Software Engineer</p>
+                    <p id="sidebarUserDept">Engineering Department</p>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item">
+                    <a href="employee.html#profile" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="leave.html" class="nav-link">
+                        <i class="fas fa-calendar-plus"></i>
+                        <span>Leave Management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="salary.html" class="nav-link">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Salary</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="tasks.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                        <span class="badge" id="taskBadge">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="employee.html#password" class="nav-link">
+                        <i class="fas fa-key"></i>
+                        <span>Change Password</span>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Tasks Section -->
+            <section class="content-section active" id="tasksSection">
+                <div class="section-header">
+                    <h2>My Tasks</h2>
+                    <div class="task-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="pending">Pending</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                </div>
+
+                <div class="tasks-content">
+                    <div class="tasks-list" id="tasksList">
+                        <!-- Tasks will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <!-- <script src="js/theme-manager.js"></script>
+    <script src="js/script-emp.js"></script>
+    <script>
+        // Tasks Page specific JavaScript
+        class TasksPage {
+            constructor() {
+                this.userData = this.loadUserData();
+                this.tasksData = this.loadTasksData();
+                
+                this.initializeElements();
+                this.bindEvents();
+                this.initializeUI();
+                this.renderTasks();
+            }
+
+            // Initialize DOM elements
+            initializeElements() {
+                // Sidebar and navigation
+                this.hamburgerBtn = document.getElementById('hamburgerBtn');
+                this.sidebar = document.getElementById('sidebar');
+                this.logoutBtn = document.getElementById('logoutBtn');
+                
+                // Tasks elements
+                this.tasksList = document.getElementById('tasksList');
+                this.taskFilters = document.querySelectorAll('.filter-btn');
+                this.taskBadge = document.getElementById('taskBadge');
+            }
+
+            // Bind event listeners
+            bindEvents() {
+                // Sidebar toggle
+                this.hamburgerBtn.addEventListener('click', () => this.toggleSidebar());
+                
+                // Logout
+                this.logoutBtn.addEventListener('click', (e) => this.handleLogout(e));
+                
+                // Task filters
+                this.taskFilters.forEach(filter => {
+                    filter.addEventListener('click', (e) => this.filterTasks(filter.dataset.filter, e));
+                });
+            }
+
+            // Sidebar functionality
+            toggleSidebar() {
+                this.sidebar.classList.toggle('active');
+            }
+
+            // Logout handling
+            handleLogout(e) {
+                e.preventDefault();
+                if (confirm('Are you sure you want to logout?')) {
+                    alert('Logged out successfully!');
+                    window.location.href = 'index.html';
+                }
+            }
+
+            // Initialize UI
+            initializeUI() {
+                this.updateProfileDisplay();
+            }
+
+            // Update profile display
+            updateProfileDisplay() {
+                // Update header user name
+                const headerUserName = document.getElementById('headerUserName');
+                if (headerUserName) {
+                    headerUserName.textContent = `Welcome, ${this.userData.name}`;
+                }
+
+                // Update sidebar user info
+                const sidebarUserName = document.getElementById('sidebarUserName');
+                const sidebarUserRole = document.getElementById('sidebarUserRole');
+                const sidebarUserDept = document.getElementById('sidebarUserDept');
+                
+                if (sidebarUserName) sidebarUserName.textContent = this.userData.name;
+                if (sidebarUserRole) sidebarUserRole.textContent = this.userData.role;
+                if (sidebarUserDept) sidebarUserDept.textContent = this.userData.department;
+            }
+
+            // Render tasks
+            renderTasks() {
+                this.renderTasksList();
+                this.updateTaskBadge();
+            }
+
+            renderTasksList(filter = 'all') {
+                let filteredTasks = this.tasksData;
+                
+                if (filter === 'pending') {
+                    filteredTasks = this.tasksData.filter(task => task.status === 'pending');
+                } else if (filter === 'completed') {
+                    filteredTasks = this.tasksData.filter(task => task.status === 'completed');
+                }
+                
+                this.tasksList.innerHTML = filteredTasks.map(task => `
+                    <div class="task-item">
+                        <div class="task-header">
+                            <h4 class="task-title">${this.escapeHtml(task.title)}</h4>
+                            <span class="task-status ${task.status}">${task.status}</span>
+                        </div>
+                        <p class="task-description">${this.escapeHtml(task.description)}</p>
+                        <div class="task-meta">
+                            <span><i class="fas fa-calendar"></i> Due: ${this.formatDate(task.dueDate)}</span>
+                            <span><i class="fas fa-user"></i> ${task.assignedBy}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            filterTasks(filter, event) {
+                // Update filter buttons
+                this.taskFilters.forEach(btn => btn.classList.remove('active'));
+                event.target.classList.add('active');
+                
+                this.renderTasksList(filter);
+            }
+
+            updateTaskBadge() {
+                const pendingTasks = this.tasksData.filter(task => task.status === 'pending').length;
+                this.taskBadge.textContent = pendingTasks;
+                
+                if (pendingTasks === 0) {
+                    this.taskBadge.style.display = 'none';
+                } else {
+                    this.taskBadge.style.display = 'inline-block';
+                }
+            }
+
+            // Utility functions
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                });
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            showNotification(message, type = 'info') {
+                const notificationContainer = document.getElementById('notificationContainer');
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <span class="notification-message">${message}</span>
+                        <button class="notification-close">&times;</button>
+                    </div>
+                `;
+                
+                notificationContainer.appendChild(notification);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 5000);
+                
+                // Close button functionality
+                const closeBtn = notification.querySelector('.notification-close');
+                closeBtn.addEventListener('click', () => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                });
+            }
+
+            // Data loading functions
+            loadUserData() {
+                // Mock user data
+                return {
+                    name: 'John Smith',
+                    email: 'john.smith@company.com',
+                    phone: '+1 (555) 123-4567',
+                    role: 'Software Engineer',
+                    department: 'Engineering Department',
+                    location: 'New York, NY',
+                    employeeId: 'EMP001',
+                    joiningDate: 'January 15, 2023'
+                };
+            }
+
+            loadTasksData() {
+                // Mock tasks data
+                return [
+                    {
+                        id: 1,
+                        title: 'Complete User Authentication Module',
+                        description: 'Implement secure user authentication with JWT tokens and password hashing.',
+                        status: 'pending',
+                        dueDate: '2024-01-20',
+                        assignedBy: 'Project Manager'
+                    },
+                    {
+                        id: 2,
+                        title: 'Review Code for Security Vulnerabilities',
+                        description: 'Perform security audit on the payment processing module.',
+                        status: 'completed',
+                        dueDate: '2024-01-15',
+                        assignedBy: 'Security Team'
+                    },
+                    {
+                        id: 3,
+                        title: 'Update API Documentation',
+                        description: 'Update the REST API documentation with new endpoints and examples.',
+                        status: 'pending',
+                        dueDate: '2024-01-25',
+                        assignedBy: 'Technical Lead'
+                    },
+                    {
+                        id: 4,
+                        title: 'Fix Mobile Responsiveness Issues',
+                        description: 'Resolve layout issues on mobile devices for the dashboard.',
+                        status: 'pending',
+                        dueDate: '2024-01-22',
+                        assignedBy: 'UI/UX Team'
+                    }
+                ];
+            }
+        }
+
+        // Initialize the tasks page
+        let tasksPage;
+        document.addEventListener('DOMContentLoaded', () => {
+            tasksPage = new TasksPage();
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024) {
+                const sidebar = document.getElementById('sidebar');
+                const hamburgerBtn = document.getElementById('hamburgerBtn');
+                
+                if (sidebar.classList.contains('active') && 
+                    !sidebar.contains(e.target) && 
+                    !hamburgerBtn.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        });
+    </script> -->
+</body>
+</html> 
