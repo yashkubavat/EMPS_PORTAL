@@ -67,6 +67,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\assets\css\js\dashboard.js" />
+    <Content Include="Admin\assets\css\js\login.js" />
+    <Content Include="Admin\assets\css\style.css" />
+    <Content Include="Admin\dashboard.aspx" />
+    <Content Include="Admin\dashboard.html" />
+    <Content Include="Admin\departments.aspx" />
+    <Content Include="Admin\departments.html" />
+    <Content Include="Admin\employees.aspx" />
+    <Content Include="Admin\employees.html" />
+    <Content Include="Admin\index.aspx" />
+    <Content Include="Admin\index.html" />
+    <Content Include="Admin\leave.aspx" />
+    <Content Include="Admin\leave.html" />
+    <Content Include="Admin\login.html" />
+    <Content Include="Admin\logout.aspx" />
+    <Content Include="Admin\logout.html" />
+    <Content Include="Admin\overview.aspx" />
+    <Content Include="Admin\overview.html" />
+    <Content Include="Admin\register.aspx" />
+    <Content Include="Admin\register.html" />
+    <Content Include="Admin\salary.aspx" />
+    <Content Include="Admin\salary.html" />
+    <Content Include="Admin\style.css" />
     <Content Include="App_Data\EMP_DATABASE.mdf" />
     <Content Include="App_Data\EMP_DATABASE_log.ldf">
       <DependentUpon>EMP_DATABASE.mdf</DependentUpon>
@@ -83,6 +106,7 @@
     <Content Include="leave.aspx" />
     <Content Include="leave.html" />
     <Content Include="login.aspx" />
+    <Content Include="logout.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="registration.html" />
     <Content Include="salary.aspx" />
@@ -93,6 +117,76 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\departments.aspx.cs">
+      <DependentUpon>departments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\departments.aspx.designer.cs">
+      <DependentUpon>departments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\employees.aspx.cs">
+      <DependentUpon>employees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\employees.aspx.designer.cs">
+      <DependentUpon>employees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\leave.aspx.cs">
+      <DependentUpon>leave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\leave.aspx.designer.cs">
+      <DependentUpon>leave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\overview.aspx.cs">
+      <DependentUpon>overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\overview.aspx.designer.cs">
+      <DependentUpon>overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\salary.aspx.cs">
+      <DependentUpon>salary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\salary.aspx.designer.cs">
+      <DependentUpon>salary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Site2.Master.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Site2.Master.designer.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+    </Compile>
     <Compile Include="employee.aspx.cs">
       <DependentUpon>employee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -113,6 +207,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registration.aspx.cs">
@@ -145,6 +246,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Site2.Master" />
+    <Content Include="Admin\.vscode\settings.json" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <Content Include="README.md" />

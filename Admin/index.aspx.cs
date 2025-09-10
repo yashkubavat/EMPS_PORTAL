@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,16 +8,15 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace EMPS_PORTAL
+namespace EMPS_PORTAL.Admin
 {
-    public partial class login : System.Web.UI.Page
+    public partial class index : System.Web.UI.Page
     {
-        SqlCommand cmd;
-        DataSet ds;
         string s = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        SqlCommand cmd;
         SqlConnection con;
         SqlDataAdapter ad;
-        string fnm;
+        DataSet ds;
         int i;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,20 +24,20 @@ namespace EMPS_PORTAL
         }
         void getcon()
         {
-            con = new SqlConnection(s);
+            con=new SqlConnection(s);
             con.Open();
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Button1.Text == "Login")
+            if(Button1.Text== "Login")
             {
                 getcon();
-                cmd= new SqlCommand("select count(*) from emp_tbl where Email='"+txtun.Text+"' and Password='"+txtpass.Text+"'",con);
+                cmd = new SqlCommand("select count(*) from admin_tbl where Email='"+txtem.Text+"' and Password='"+txtpass.Text+"'", con);
                 i=Convert.ToInt32(cmd.ExecuteScalar());
                 if (i > 0)
                 {
-                    Session["user"]=txtun.Text;
-                    Response.Redirect("employee.aspx");
+                    Session["user"] =txtem.Text;
+                    Response.Redirect("dashboard.aspx");
                 }
                 else
                 {

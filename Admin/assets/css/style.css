@@ -1,0 +1,109 @@
+/* style.css - Common for all pages with Gradient + Animation */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #e0e7ff, #f4f6f9);
+    color: #333;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Header with Gradient */
+header {
+    background: linear-gradient(90deg, #4b49ac, #6c63ff);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    animation: slideDown 0.8s ease-in-out;
+}
+
+/* Sidebar */
+nav {
+    background: linear-gradient(180deg, #2e2d6d, #4b49ac);
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    animation: slideLeft 1s ease-in-out;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 5px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: linear-gradient(90deg, #6c63ff, #4b49ac);
+    transform: translateX(5px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Main content */
+.main {
+    margin-left: 240px;
+    padding: 20px;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Card Design */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* Button */
+.btn {
+    background: linear-gradient(90deg, #4b49ac, #6c63ff);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    display: inline-block;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #6c63ff, #4b49ac);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

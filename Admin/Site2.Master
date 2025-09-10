@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="EMPS_PORTAL.Admin.Site2" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Admin Dashboard</title>
+                    <link rel="stylesheet" href="assets/css/style.css">
+                </head>
+                <body>
+                    <header>
+                        <h1>Employee Management Dashboard</h1>
+                    </header>
+                    <nav>
+                        <a href="dashboard.html">Dashboard</a>
+                        <a href="employees.html">Employees</a>
+                        <a href="departments.html">Departments</a>
+                        <a href="salary.html">Salary</a>
+                        <a href="leave.html">Leave</a>
+                        <a href="overview.html">Employee Overview</a>
+                        <a href="logout.html">Logout</a>
+                    </nav>
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+</body>
+</html>
+</asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
