@@ -9,10 +9,12 @@
             <section class="content-section active" id="leaveSection">
                 <div class="section-header">
                     <h2>Leave Management</h2>
-                    <button class="btn btn-primary" id="requestLeaveBtn">
+                    <%--<button class="btn btn-primary" id="requestLeaveBtn">
                         <i class="fas fa-plus"></i>
                         Request Leave
-                    </button>
+                    </button>--%>
+                    <%--<i class="fas fa-plus"></i>--%>
+                    <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Request Leave" OnClientClick="Button1_Click" OnClick="Button1_Click1" />
                 </div>
 
                 <!-- Leave Balance Summary -->
@@ -71,17 +73,49 @@
                     <div class="leave-history">
                         <h3>Leave History</h3>
                         <div class="leave-list" id="leaveList">
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
+                                CssClass="white-grid"
+                                OnRowCommand="GridView1_RowCommand">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Leave Type">
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Type") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Status">
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
                             <!-- Leave items will be populated by JavaScript -->
                         </div>
                     </div>
 
                     <!-- Upcoming Leaves -->
-                    <div class="upcoming-leaves">
-                        <h3>Upcoming Leaves</h3>
+                   <%-- <div class="upcoming-leaves">
+                        <h3>Leaves</h3>
                         <div class="upcoming-list" id="upcomingList">
+                            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"
+                                CssClass="white-grid"
+                                OnRowCommand="GridView1_RowCommand">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Leave Type">
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Type") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Status">
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
                             <!-- Upcoming leaves will be populated by JavaScript -->
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
             </section>
         </div>
@@ -97,6 +131,42 @@
         <title>Employee User Panel</title>
         <link rel="stylesheet" href="css/style-emp.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            /* White theme for GridView */
+            .white-grid {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Arial, sans-serif;
+                background-color: #ffffff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                margin-top: 15px;
+            }
+
+                .white-grid th {
+                    background-color: lightseagreen;
+                    color: white;
+                    padding: 10px;
+                    text-align: center;
+                    border: 1px solid #ddd;
+                    font-weight: bold;
+                }
+
+                .white-grid td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                    text-align: center;
+                    color: #444;
+                }
+
+                .white-grid tr:nth-child(even) {
+                    background-color: #fafafa;
+                }
+
+                .white-grid tr:hover {
+                    background-color: #f5f5f5;
+                }
+        </style>
+
     </head>
     <body>
         <!-- CSS-only theme toggle checkbox -->

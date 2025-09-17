@@ -105,6 +105,7 @@
     <Content Include="js\theme-manager.js" />
     <Content Include="leave.aspx" />
     <Content Include="leave.html" />
+    <Content Include="LeaveForm.aspx" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="registration.aspx" />
@@ -200,6 +201,13 @@
     </Compile>
     <Compile Include="leave.aspx.designer.cs">
       <DependentUpon>leave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveForm.aspx.cs">
+      <DependentUpon>LeaveForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LeaveForm.aspx.designer.cs">
+      <DependentUpon>LeaveForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
