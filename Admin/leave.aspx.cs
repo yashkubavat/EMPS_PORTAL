@@ -18,6 +18,7 @@ namespace EMPS_PORTAL.Admin
         SqlDataAdapter ad;
         DataSet ds;
         int i;
+        int employeeId;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (Session["user"] == null)
@@ -26,6 +27,10 @@ namespace EMPS_PORTAL.Admin
             //}
             
                 fillgrd();
+            if (!IsPostBack)
+            {
+                fetchem();
+            }
             
             
         }
@@ -42,6 +47,10 @@ namespace EMPS_PORTAL.Admin
             ad.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+        }
+        void fetchem()
+        {
+
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

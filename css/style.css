@@ -855,3 +855,13 @@ body {
     background: var(--text-secondary);
 } 
 
+
+/*additional css*/
+
+.circle-image {
+    width: 150px; /* adjust size */
+    height: 150px;
+    border-radius: 50%; /* makes it round */
+    object-fit: cover; /* ensures image covers fully */
+    border: 3px solid #333; /* optional border */
+}

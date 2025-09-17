@@ -60,6 +60,56 @@
                         </div>
                     </div>
                 </div>
+                <div class="profile-content">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar" id="mainProfilePicture">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h3 id="mainUserName">John Smith</h3>
+                                <p id="mainUserRole">Software Engineer</p>
+                                <p id="mainUserDept">Engineering Department</p>
+                            </div>
+                        </div>
+                        <div class="profile-details">
+                            <asp:DataList ID="DataList2" runat="server" RepeatDirection="Horizontal">
+                                <ItemTemplate>
+
+                                    <div class="detail-group">
+                                        <label>Employee ID</label>
+                                        <p><asp:Label ID="Label4" runat="server" Text='<%# Eval("Id") %>'></asp:Label></p>
+                                    </div>
+                                    <div class="detail-group">
+                                        <label>Employee Name</label>
+                                        <p><asp:Label ID="Label5" runat="server" Text='<%# Eval("Name") %>'></asp:Label></p>
+                                    </div>
+                                    <div class="detail-group">
+                                        <label>Employee Email</label>
+                                        <p><asp:Label ID="Label6" runat="server" Text='<%# Eval("Email") %>'></asp:Label></p>
+                                    </div>
+                                    <div class="detail-group">
+                                        <label>Employee Department</label>
+                                        <p><asp:Label ID="Label7" runat="server" Text='<%# Eval("Department") %>'></asp:Label></P>
+                                    </div>
+                                    <div class="detail-group">
+                                        <label>Employee Mobile</label>
+                                       <p> <asp:Label ID="Label8" runat="server" Text='<%# Eval("Mobile") %>'></asp:Label></p>
+                                    </div>
+                                    <div class="detail-group">
+                                        <label>Employee Location</label>
+                                       <p> <asp:Label ID="Label9" runat="server" Text='<%# Eval("City") %>'></asp:Label></p>
+                                    </div>
+                                    <div class="detail-group">
+                                        <label>Employee Gender</label>
+                                        <p><asp:Label ID="Label10" runat="server" Text='<%# Eval("Gender") %>'></asp:Label></p>
+                                    </div>
+
+                                </ItemTemplate>
+                            </asp:DataList>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Attendance Section
@@ -196,7 +246,8 @@
             </div>
             <div class="header-right">
                 <div class="user-info">
-                    <span id="headerUserName">Welcome, John</span> <i class="fas fa-user-circle"></i>
+                    <span id="headerUserName">Welcome,
+                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span> <i class="fas fa-user-circle"></i>
                 </div>
                 <label for="themeToggle" class="theme-toggle-label" title="Toggle dark mode">
                     <i class="fas fa-sun"></i><span>/</span> <i class="fas fa-moon"></i>
@@ -207,7 +258,7 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <div class="user-profile">
+                <%--<div class="user-profile">
                     <div class="profile-picture" id="profilePicture">
                         <i class="fas fa-user"></i>
                     </div>
@@ -220,7 +271,22 @@
                             Engineering Department
                         </p>
                     </div>
-                </div>
+                </div>--%>
+                <asp:DataList ID="DataList1" runat="server" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
+                    <ItemTemplate>
+                        <div class="user-profile">
+                            <div class="profile-picture">
+                                <i class="fas fa-user"></i>
+                                <%--<asp:Image ID="Image1" runat="server" Height="52" Width="52" CssClass="circle-image" ImageUrl='<%# Eval("Image") %>' />--%>
+                            </div>
+                            <br />
+                            <div class="user-details">
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                                <br />
+                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Department") %>'></asp:Label>
+                            </div>
+                    </ItemTemplate>
+                </asp:DataList>
             </div>
             <nav class="sidebar-nav">
                 <ul>

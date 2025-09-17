@@ -41,6 +41,10 @@ namespace EMPS_PORTAL
                 if (i > 0)
                 {
                     Session["user"]=txtun.Text;
+                    ad = new SqlDataAdapter("select Name from emp_tbl where Email='" + Session["user"] +"'",con);
+                    ds=new DataSet();
+                    ad.Fill(ds);
+                    Session["name"] = ds.Tables[0].Rows[0]["Name"];
                     Response.Redirect("employee.aspx");
                 }
                 else
