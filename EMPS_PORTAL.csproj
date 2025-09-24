@@ -85,6 +85,7 @@
     <Content Include="Admin\logout.html" />
     <Content Include="Admin\overview.aspx" />
     <Content Include="Admin\overview.html" />
+    <Content Include="Admin\paySalary.aspx" />
     <Content Include="Admin\register.aspx" />
     <Content Include="Admin\register.html" />
     <Content Include="Admin\salary.aspx" />
@@ -97,6 +98,7 @@
     <Content Include="attendance.html" />
     <Content Include="css\style-emp.css" />
     <Content Include="css\style.css" />
+    <Content Include="edit.aspx" />
     <Content Include="employee.aspx" />
     <Content Include="employee.html" />
     <Content Include="index.html" />
@@ -167,6 +169,13 @@
     <Compile Include="Admin\overview.aspx.designer.cs">
       <DependentUpon>overview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\paySalary.aspx.cs">
+      <DependentUpon>paySalary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\paySalary.aspx.designer.cs">
+      <DependentUpon>paySalary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +196,13 @@
     </Compile>
     <Compile Include="Admin\Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
+    </Compile>
+    <Compile Include="edit.aspx.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edit.aspx.designer.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="employee.aspx.cs">
       <DependentUpon>employee.aspx</DependentUpon>

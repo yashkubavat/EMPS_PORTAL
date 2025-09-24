@@ -27,6 +27,8 @@ namespace EMPS_PORTAL
                 
             }
             Label1.Text = Session["name"].ToString();
+            Label11.Text = Session["name"].ToString();
+            Label12.Text = Session["dept"].ToString();
             filldatalist();
         }
         void getcon()
@@ -49,6 +51,11 @@ namespace EMPS_PORTAL
         protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("edit.aspx?EID=" + Session["eid"]);
         }
     }
 }

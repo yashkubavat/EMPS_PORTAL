@@ -36,7 +36,7 @@ namespace EMPS_PORTAL.Admin
                 i=Convert.ToInt32(cmd.ExecuteScalar());
                 if (i > 0)
                 {
-                    Session["user"] =txtem.Text;
+                    Session["admin"] =txtem.Text;
                     Response.Redirect("dashboard.aspx");
                 }
                 else

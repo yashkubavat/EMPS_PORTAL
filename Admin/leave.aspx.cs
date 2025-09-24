@@ -21,10 +21,10 @@ namespace EMPS_PORTAL.Admin
         int employeeId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["user"] == null)
-            //{
-            //    Response.Redirect("index.aspx");
-            //}
+            if (Session["admin"] == null)
+            {
+                Response.Redirect("index.aspx");
+            }
             
                 fillgrd();
             if (!IsPostBack)

@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
     <div class="main">
+        <asp:Button ID="Button1" class="btn" runat="server" Text="Pay Salary" OnClick="Button1_Click" />
         <div class="card">
             <h2>Salary Records</h2>
             <table border="1" width="100%" cellpadding="10">
@@ -26,6 +27,23 @@
                     <td>Pending</td>
                 </tr>
             </table>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:TemplateField HeaderText="Id"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Employee Name"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Employee Id"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Department"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Pay Periode"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Pay Date"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Bassic Salary"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="HA"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Other earning"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Leave Deduction"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Net Pay"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Pay Method"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Pay Details"></asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
     </div>
 </asp:Content>

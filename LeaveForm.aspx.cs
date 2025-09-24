@@ -27,6 +27,11 @@ namespace EMPS_PORTAL
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
+            if (Session["user"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+            txtEId.Text = Session["eid"].ToString();
         }
         void getcon()
         {
@@ -36,27 +41,34 @@ namespace EMPS_PORTAL
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Button1.Text == "Submit Aplication")
+            if (Convert.ToInt32(Session["reLeave"]) == 0)
             {
-                getcon();
-                sdate = Calendar1.SelectedDate.Date;
-                edate = Calendar2.SelectedDate.Date;
-                cmd = new SqlCommand(@"INSERT INTO leave_tbl 
+                Response.Write("<script>alert('You can not take any type of leave!!!')</script>");
+            }
+            else
+            {
+                if (Button1.Text == "Submit Aplication")
+                {
+                    getcon();
+                    sdate = Calendar1.SelectedDate.Date;
+                    edate = Calendar2.SelectedDate.Date;
+                    cmd = new SqlCommand(@"INSERT INTO leave_tbl 
             (Name, Empid, S_date, E_date, Reson, Status, Type) 
             VALUES (@Name, @Empid, @Sdate, @Edate, @Reson, @Status,@LeaveType)", con);
 
-                cmd.Parameters.AddWithValue("@Name", txtun.Text);
-                cmd.Parameters.AddWithValue("@Empid", txtEId.Text);
+                    cmd.Parameters.AddWithValue("@Name", txtun.Text);
+                    cmd.Parameters.AddWithValue("@Empid", txtEId.Text);
 
-                cmd.Parameters.AddWithValue("@Sdate", sdate);
-                cmd.Parameters.AddWithValue("@Edate", edate);
-                cmd.Parameters.AddWithValue("@Reson", txtre.Text);
-                cmd.Parameters.AddWithValue("@Status", status);
-                cmd.Parameters.AddWithValue("@LeaveType", dle.SelectedValue);
-                i = cmd.ExecuteNonQuery();
-                if (i > 0)
-                {
-                    Response.Redirect("leave.aspx");
+                    cmd.Parameters.AddWithValue("@Sdate", sdate);
+                    cmd.Parameters.AddWithValue("@Edate", edate);
+                    cmd.Parameters.AddWithValue("@Reson", txtre.Text);
+                    cmd.Parameters.AddWithValue("@Status", status);
+                    cmd.Parameters.AddWithValue("@LeaveType", dle.SelectedValue);
+                    i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                    {
+                        Response.Redirect("leave.aspx");
+                    }
                 }
             }
         }

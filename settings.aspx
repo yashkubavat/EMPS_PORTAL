@@ -61,88 +61,88 @@
     </main>
 </asp:Content>
 
-<asp:Content ID="Content6" runat="server" contentplaceholderid="ContentPlaceHolder1">
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Employee User Panel</title>
-                    <link rel="stylesheet" href="css/style-emp.css">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-                </head>
-                <body>
-                    <!-- CSS-only theme toggle checkbox -->
-                    <input type="checkbox" id="themeToggle" class="theme-toggle-checkbox">
+<asp:Content ID="Content6" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Employee User Panel</title>
+        <link rel="stylesheet" href="css/style-emp.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <!-- CSS-only theme toggle checkbox -->
+        <input type="checkbox" id="themeToggle" class="theme-toggle-checkbox">
 
-                    <!-- Header -->
-                    <header class="header">
-                        <div class="header-left">
-                            <button class="hamburger-btn" id="hamburgerBtn">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                            <div class="logo">
-                                <i class="fas fa-user-circle"></i>
-                                <h1>Employee Portal</h1>
-                            </div>
-                        </div>
-                        <div class="header-right">
-                            <div class="user-info">
-                                <span id="headerUserName">Welcome, John</span> <i class="fas fa-user-circle"></i>
-                            </div>
-                            <label for="themeToggle" class="theme-toggle-label" title="Toggle dark mode">
-                            <i class="fas fa-sun"></i><span>/</span> <i class="fas fa-moon"></i>
-                            </label>
-                        </div>
-                    </header>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="hamburger-btn" id="hamburgerBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fas fa-user-circle"></i>
+                    <h1>Employee Portal</h1>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span id="headerUserName">Welcome,
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span> <i class="fas fa-user-circle"></i>
+                </div>
+                <label for="themeToggle" class="theme-toggle-label" title="Toggle dark mode">
+                    <i class="fas fa-sun"></i><span>/</span> <i class="fas fa-moon"></i>
+                </label>
+            </div>
+        </header>
 
-                    <!-- Sidebar -->
-                    <aside class="sidebar" id="sidebar">
-                        <div class="sidebar-header">
-                            <div class="user-profile">
-                                <div class="profile-picture" id="profilePicture">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="user-details">
-                                    <h3 id="sidebarUserName">John Smith</h3>
-                                    <p id="sidebarUserRole">
-                                        Software Engineer</p>
-                                    <p id="sidebarUserDept">
-                                        Engineering Department</p>
-                                </div>
-                            </div>
-                        </div>
-                        <nav class="sidebar-nav">
-                            <ul>
-                                <li class="nav-item active"><a href="employee.aspx" class="nav-link" data-section="profile"><i class="fas fa-user"></i><span>My Profile</span> </a>
-                                </li>
-                                <!-- <li class="nav-item">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="profile-picture" id="profilePicture">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Department") %>'></asp:Label>
+                    </div>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active"><a href="employee.aspx" class="nav-link" data-section="profile"><i class="fas fa-user"></i><span>My Profile</span> </a>
+                    </li>
+                    <!-- <li class="nav-item">
                     <a href="attendance.html" class="nav-link">
                         <i class="fas fa-calendar-check"></i>
                         <span>Attendance</span>
                     </a>
                 </li> -->
-                                <li class="nav-item"><a href="leave.aspx" class="nav-link"><i class="fas fa-calendar-plus"></i><span>Leave Management</span> </a></li>
-                                <li class="nav-item"><a href="salary.aspx" class="nav-link"><i class="fas fa-money-bill-wave"></i><span>Salary</span> </a>
-                                </li>
-                                <!-- <li class="nav-item">
+                    <li class="nav-item"><a href="leave.aspx" class="nav-link"><i class="fas fa-calendar-plus"></i><span>Leave Management</span> </a></li>
+                    <li class="nav-item"><a href="salary.aspx" class="nav-link"><i class="fas fa-money-bill-wave"></i><span>Salary</span> </a>
+                    </li>
+                    <!-- <li class="nav-item">
                     <a href="tasks.html" class="nav-link">
                         <i class="fas fa-tasks"></i>
                         <span>Tasks</span>
                         <span class="badge" id="taskBadge">3</span>
                     </a>
                 </li> -->
-                                <li class="nav-item"><a href="settings.aspx" class="nav-link"><i class="fas fa-cog"></i><span>Settings</span> </a>
-                                </li>
-                                <!-- <li class="nav-item">
+                    <li class="nav-item"><a href="settings.aspx" class="nav-link"><i class="fas fa-cog"></i><span>Settings</span> </a>
+                    </li>
+                    <!-- <li class="nav-item">
                     <a href="#password" class="nav-link" data-section="password">
                         <i class="fas fa-key"></i>
                         <span>Change Password</span>
                     </a>
                 </li> -->
-                                <li class="nav-item"><a href="logout.aspx" class="nav-link" id="logoutBtn"><i class="fas fa-sign-out-alt"></i><span>Logout</span> </a></li>
-                            </ul>
-                        </nav>
-                    </aside>
+                    <li class="nav-item"><a href="logout.aspx" class="nav-link" id="logoutBtn"><i class="fas fa-sign-out-alt"></i><span>Logout</span> </a></li>
+                </ul>
+            </nav>
+        </aside>
 </asp:Content>
 
 

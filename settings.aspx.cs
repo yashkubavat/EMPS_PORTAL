@@ -15,6 +15,9 @@ namespace EMPS_PORTAL
             {
                 Response.Redirect("login.aspx");
             }
+            Label1.Text = Session["name"].ToString();
+            Label2.Text = Session["name"].ToString();
+            Label3.Text = Session["dept"].ToString();
         }
     }
 }

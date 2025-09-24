@@ -27,6 +27,7 @@ namespace EMPS_PORTAL.Admin
             con = new SqlConnection(s);
             con.Open();
         }
+       
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (Button1.Text == "Register")

@@ -9,13 +9,14 @@
             <section class="content-section active" id="profileSection">
                 <div class="section-header">
                     <h2>My Profile</h2>
-                    <button class="btn btn-primary" id="editProfileBtn">
+                    <%--<button class="btn btn-primary" id="editProfileBtn">
                         <i class="fas fa-edit"></i>
                         Edit Profile
-                    </button>
+                    </button>--%>
+                    <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Edit Profile" OnClick="Button1_Click" />
                 </div>
 
-                <div class="profile-content">
+                <%--<div class="profile-content">
                     <div class="profile-card">
                         <div class="profile-header">
                             <div class="profile-avatar" id="mainProfilePicture">
@@ -59,7 +60,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
                 <div class="profile-content">
                     <div class="profile-card">
                         <div class="profile-header">
@@ -67,44 +68,86 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="profile-info">
-                                <h3 id="mainUserName">John Smith</h3>
-                                <p id="mainUserRole">Software Engineer</p>
-                                <p id="mainUserDept">Engineering Department</p>
+                                <h3 id="mainUserName">
+                                    <asp:Label ID="Label11" runat="server" Text="Label"></asp:Label></h3>
+                                <%--<p id="mainUserRole">Software Engineer</p>--%>
+                                <p id="mainUserDept">
+                                    <asp:Label ID="Label12" runat="server" Text="Label"></asp:Label>
+                                </p>
                             </div>
                         </div>
                         <div class="profile-details">
-                            <asp:DataList ID="DataList2" runat="server" RepeatDirection="Horizontal">
+                            <asp:DataList ID="DataList2" runat="server" RepeatDirection="Horizontal" CellPadding="10" CellSpacing="10">
                                 <ItemTemplate>
-
-                                    <div class="detail-group">
-                                        <label>Employee ID</label>
-                                        <p><asp:Label ID="Label4" runat="server" Text='<%# Eval("Id") %>'></asp:Label></p>
-                                    </div>
-                                    <div class="detail-group">
-                                        <label>Employee Name</label>
-                                        <p><asp:Label ID="Label5" runat="server" Text='<%# Eval("Name") %>'></asp:Label></p>
-                                    </div>
-                                    <div class="detail-group">
-                                        <label>Employee Email</label>
-                                        <p><asp:Label ID="Label6" runat="server" Text='<%# Eval("Email") %>'></asp:Label></p>
-                                    </div>
-                                    <div class="detail-group">
-                                        <label>Employee Department</label>
-                                        <p><asp:Label ID="Label7" runat="server" Text='<%# Eval("Department") %>'></asp:Label></P>
-                                    </div>
-                                    <div class="detail-group">
-                                        <label>Employee Mobile</label>
-                                       <p> <asp:Label ID="Label8" runat="server" Text='<%# Eval("Mobile") %>'></asp:Label></p>
-                                    </div>
-                                    <div class="detail-group">
-                                        <label>Employee Location</label>
-                                       <p> <asp:Label ID="Label9" runat="server" Text='<%# Eval("City") %>'></asp:Label></p>
-                                    </div>
-                                    <div class="detail-group">
-                                        <label>Employee Gender</label>
-                                        <p><asp:Label ID="Label10" runat="server" Text='<%# Eval("Gender") %>'></asp:Label></p>
-                                    </div>
-
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="detail-group">
+                                                    <label>EMPID</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="detail-group">
+                                                    <label>Name</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="detail-group">
+                                                    <label>Email</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="detail-group">
+                                                    <label>Department</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="detail-group">
+                                                    <label>Mobile</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="detail-group">
+                                                    <label>Location</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="detail-group">
+                                                    <label>Gender</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("Id") %>'></asp:Label></p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("Name") %>'></asp:Label></p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("Email") %>'></asp:Label></p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("Department") %>'></asp:Label></p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <asp:Label ID="Label8" runat="server" Text='<%# Eval("Mobile") %>'></asp:Label></p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <asp:Label ID="Label9" runat="server" Text='<%# Eval("City") %>'></asp:Label></p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <asp:Label ID="Label10" runat="server" Text='<%# Eval("Gender") %>'></asp:Label></p>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </ItemTemplate>
                             </asp:DataList>
                         </div>
@@ -228,6 +271,16 @@
         <title>Employee User Panel</title>
         <link rel="stylesheet" href="css/style-emp.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            table {
+                border-collapse: separate;
+                border-spacing: 10px; /* this replaces cellspacing */
+            }
+
+                table td {
+                    padding: 10px; /* this replaces cellpadding */
+                }
+        </style>
     </head>
     <body>
         <!-- CSS-only theme toggle checkbox -->

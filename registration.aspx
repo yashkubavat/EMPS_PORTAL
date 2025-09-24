@@ -98,7 +98,7 @@
                                 <div class="input-wrapper">
                                     <%--<i class="fas fa-briefcase input-icon"></i>--%>
                                     <%--<input type="text" id="department" name="department" placeholder="Enter department" required>--%>
-                                    <asp:DropDownList ID="drctdep" style="border-radius:5px;width:max-content;height:25px;" runat="server">
+                                    <asp:DropDownList ID="drctdep" style="border-radius:5px;width:max-content;height:25px;" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drctdep_SelectedIndexChanged">
                                         <asp:ListItem>---Select Department---</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>

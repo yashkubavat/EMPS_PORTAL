@@ -11,7 +11,7 @@ namespace EMPS_PORTAL.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] == null)
+            if (Session["admin"] == null)
             {
                 Response.Redirect("index.aspx");
             }

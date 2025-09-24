@@ -24,30 +24,17 @@
                             <i class="fas fa-calendar-day"></i>
                         </div>
                         <div class="summary-content">
-                            <h3>Annual Leave</h3>
+                            <h3>Total Leave</h3>
                             <div class="balance-info">
-                                <span class="balance-used">15 used</span>
-                                <span class="balance-remaining">10 remaining</span>
+                                <b>
+                                    <asp:Label ID="txtleave" runat="server" Text="Label"></asp:Label><p>Leaves</p>
+                                </b>
+                                <%--<span class="balance-used">15 used</span>
+                                <span class="balance-remaining">10 remaining</span>--%>
                             </div>
-                            <div class="progress-bar">
+                            <%--<div class="progress-bar">
                                 <div class="progress-fill" style="width: 60%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="summary-card">
-                        <div class="summary-icon">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <div class="summary-content">
-                            <h3>Sick Leave</h3>
-                            <div class="balance-info">
-                                <span class="balance-used">3 used</span>
-                                <span class="balance-remaining">7 remaining</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 30%"></div>
-                            </div>
+                            </div>--%>
                         </div>
                     </div>
 
@@ -56,14 +43,36 @@
                             <i class="fas fa-briefcase"></i>
                         </div>
                         <div class="summary-content">
-                            <h3>Personal Leave</h3>
+                            <h3>Remaininng Leave</h3>
                             <div class="balance-info">
-                                <span class="balance-used">2 used</span>
-                                <span class="balance-remaining">3 remaining</span>
+                                <b>
+                                    <asp:Label ID="txtreleave" runat="server" Text="Label"></asp:Label><p>Leaves</p>
+                                </b>
+                                <%--<span class="balance-used">3 used</span>
+                                <span class="balance-remaining">7 remaining</span>--%>
                             </div>
-                            <div class="progress-bar">
+                            <%--<div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%"></div>
+                            </div>--%>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Taken Leave</h3>
+                            <div class="balance-info">
+                                <b>
+                                    <asp:Label ID="txtgrleave" runat="server" Text="Label"></asp:Label><p>Leaves</p>
+                                </b>
+                                <%--<span class="balance-used">2 used</span>
+                                <span class="balance-remaining">3 remaining</span>--%>
+                            </div>
+                            <%--<div class="progress-bar">
                                 <div class="progress-fill" style="width: 40%"></div>
-                            </div>
+                            </div>--%>
                         </div>
                     </div>
                 </div>
@@ -82,6 +91,11 @@
                                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("Type") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Reason For Leave">
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Reson") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Status">
                                         <ItemTemplate>
                                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
@@ -94,7 +108,7 @@
                     </div>
 
                     <!-- Upcoming Leaves -->
-                   <%-- <div class="upcoming-leaves">
+                    <%-- <div class="upcoming-leaves">
                         <h3>Leaves</h3>
                         <div class="upcoming-list" id="upcomingList">
                             <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"
@@ -185,7 +199,8 @@
             </div>
             <div class="header-right">
                 <div class="user-info">
-                    <span id="headerUserName">Welcome, John</span> <i class="fas fa-user-circle"></i>
+                    <span id="headerUserName">Welcome,
+                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span> <i class="fas fa-user-circle"></i>
                 </div>
                 <label for="themeToggle" class="theme-toggle-label" title="Toggle dark mode">
                     <i class="fas fa-sun"></i><span>/</span> <i class="fas fa-moon"></i>
@@ -201,13 +216,9 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="user-details">
-                        <h3 id="sidebarUserName">John Smith</h3>
-                        <p id="sidebarUserRole">
-                            Software Engineer
-                        </p>
-                        <p id="sidebarUserDept">
-                            Engineering Department
-                        </p>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                        <br />
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Department") %>'></asp:Label>
                     </div>
                 </div>
             </div>
