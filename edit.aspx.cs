@@ -23,11 +23,13 @@ namespace EMPS_PORTAL
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
+
             if (!IsPostBack)
             {
                 filldlct();
+                select();
             }
-            select();
+
         }
         void getcon()
         {
@@ -56,8 +58,8 @@ namespace EMPS_PORTAL
             txtmo.Text = ds.Tables[0].Rows[0][5].ToString();
             txtpass.Text = ds.Tables[0].Rows[0][3].ToString();
             txtct.Text = ds.Tables[0].Rows[0][6].ToString();
-            rdbgd.Text = ds.Tables[0].Rows[0][7].ToString();
-            //drctdep = ds.Tables[0].Rows[0][4].ToString();
+            rdbgd.SelectedValue = ds.Tables[0].Rows[0][7].ToString();
+            drctdep.Text = ds.Tables[0].Rows[0][4].ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -65,11 +67,15 @@ namespace EMPS_PORTAL
             if (Button1.Text == "Save")
             {
                 getcon();
-                cmd = new SqlCommand("update emp_tbl set Name='"+txtun.Text+"',Email='"+txtem.Text+"',Password='"+txtpass.Text+"',Mobile='"+txtmo.Text+"',City='"+txtct.Text+"',Gender='"+rdbgd.Text+"',Department='"+ ViewState["dept"] + "' where Id='" + Session["eid"] +"'",con);
-                i=cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("update emp_tbl set Name='" + txtun.Text + "',Email='" + txtem.Text + "',Password='" + txtpass.Text + "',Mobile='" + txtmo.Text + "',City='" + txtct.Text + "',Gender='" + rdbgd.SelectedValue + "',Department='" + ViewState["dept"] +"' where Id='" + Request.QueryString["EID"] + "'", con);
+                i = cmd.ExecuteNonQuery();
                 if (i > 0)
                 {
                     Response.Redirect("employee.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Update failed. Check your query or data.');</script>");
                 }
             }
         }
@@ -80,7 +86,8 @@ namespace EMPS_PORTAL
             ds = new DataSet();
             ad.Fill(ds);
             ViewState["dept"] = ds.Tables[0].Rows[0][1].ToString();
-        }
 
+
+        }
     }
 }

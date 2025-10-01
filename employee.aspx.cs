@@ -24,22 +24,27 @@ namespace EMPS_PORTAL
             if (Session["user"] == null)
             {
                 Response.Redirect("login.aspx");
-                
+
             }
-            Label1.Text = Session["name"].ToString();
-            Label11.Text = Session["name"].ToString();
-            Label12.Text = Session["dept"].ToString();
-            filldatalist();
+
+            if (!IsPostBack)
+            {
+                Label1.Text = Session["name"].ToString();
+                Label11.Text = Session["name"].ToString();
+                Label12.Text = Session["dept"].ToString();
+                filldatalist();
+            }
+
         }
         void getcon()
         {
-            con=new SqlConnection(s);
+            con = new SqlConnection(s);
             con.Open();
         }
         void filldatalist()
         {
             getcon();
-            ad = new SqlDataAdapter("select * from emp_tbl where Email='" + Session["user"] +"'", con);
+            ad = new SqlDataAdapter("select * from emp_tbl where Email='" + Session["user"] + "'", con);
             ds = new DataSet();
             ad.Fill(ds);
             DataList1.DataSource = ds;

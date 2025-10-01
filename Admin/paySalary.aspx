@@ -161,7 +161,7 @@
             margin-top: 12px;
         }
 
-        button {
+        .button {
             padding: 10px 14px;
             border-radius: 8px;
             border: 0;
@@ -343,9 +343,9 @@
 
                     <div class="actions">
                         <!-- <button type="button" class="btn-secondary" onclick="resetForm()">Reset</button> -->
-                        <asp:Button ID="Button2" class="btn-primary" runat="server" Text="Calculate Salary" OnClick="Button2_Click" />
+                        <asp:Button ID="Button2" class="button btn-primary" runat="server" Text="Calculate Salary" OnClick="Button2_Click" />
                         <%--<button type="submit" class="btn-primary">Pay Salary</button>--%>
-                        <asp:Button ID="Button1" class="btn-primary" runat="server" Text="Pay Salary" OnClick="Button1_Click" />
+                        <asp:Button ID="Button1" class="button btn-primary" runat="server" Text="Pay Salary" OnClick="Button1_Click" />
                         <!-- <button type="button" class="btn-danger" onclick="downloadSlip()">Download Slip</button> -->
                         <%--<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>--%>
                     </div>

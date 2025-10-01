@@ -5,13 +5,13 @@
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
     <div class="main">
         <div class="card">
-            <h2>Total Employees: 120</h2>
+            <h2>Total Employees:<asp:Label ID="labem" runat="server" Text="Label"></asp:Label> </h2>
         </div>
         <div class="card">
-            <h2>Departments: 8</h2>
+            <h2>Departments: <asp:Label ID="labdept" runat="server" Text="Label"></asp:Label></h2>
         </div>
         <div class="card">
-            <h2>Pending Leaves: 5</h2>
+            <h2>Pending Leaves: <asp:Label ID="lableave" runat="server" Text="Label"></asp:Label></h2>
         </div>
     </div>
 </asp:Content>

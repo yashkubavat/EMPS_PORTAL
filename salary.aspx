@@ -69,34 +69,34 @@
                 </div>
 
                 <!-- Salary Breakdown -->
-                <div class="salary-breakdown">
+                <div class="payslip-history">
                     <div class="breakdown-card">
                         <h3>Salary Breakdown</h3>
                         <div class="breakdown-list">
                             <div class="breakdown-item">
                                 <span class="item-label">Basic Salary</span>
-                                <span class="item-amount">$7,083</span>
+                                <span class="item-amount">$<asp:Label ID="labbs" runat="server" Text="Label"></asp:Label></span>
                             </div>
                             <div class="breakdown-item">
                                 <span class="item-label">Housing Allowance</span>
-                                <span class="item-amount">$1,500</span>
-                            </div>
-                            <div class="breakdown-item">
-                                <span class="item-label">Transport Allowance</span>
-                                <span class="item-amount">$500</span>
+                                <span class="item-amount">$<asp:Label ID="labha" runat="server" Text="Label"></asp:Label></span>
                             </div>
                             <div class="breakdown-item">
                                 <span class="item-label">Performance Bonus</span>
-                                <span class="item-amount">$917</span>
+                                <span class="item-amount">$<asp:Label ID="laboe" runat="server" Text="Label"></asp:Label></span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="item-label">Leave Deduction</span>
+                                <span class="item-amount" style="color: red;">- $<asp:Label ID="labde" runat="server" Text="Label"></asp:Label></span>
                             </div>
                             <div class="breakdown-item total">
-                                <span class="item-label">Gross Salary</span>
-                                <span class="item-amount">$10,000</span>
+                                <span class="item-label">Net Pay Salary</span>
+                                <span class="item-amount">$<asp:Label ID="labnet" runat="server" Text="Label"></asp:Label></span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="breakdown-card">
+                    <%--<div class="breakdown-card">
                         <h3>Deductions</h3>
                         <div class="breakdown-list">
                             <div class="breakdown-item deduction">
@@ -120,7 +120,7 @@
                                 <span class="item-amount">-$3,920</span>
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
 
                 <!-- Payslip History -->
@@ -128,6 +128,75 @@
                     <h3>Payslip History</h3>
                     <div class="payslip-list" id="payslipList">
                         <!-- Payslips will be populated by JavaScript -->
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="salary-grid" HeaderStyle-CssClass="salary-header" RowStyle-CssClass="salary-row" AlternatingRowStyle-CssClass="salary-alt">
+                            <Columns>
+                                <%--<asp:TemplateField HeaderText="Id">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>--%>
+                                <asp:TemplateField HeaderText="Employee Name">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("E_Name") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Employee Id">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("E_Id") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Department">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("E_Department") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Pay Periode">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("Pay_Period") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Pay Date">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Pay_Date") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Bassic Salary">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("Bassic_Salary") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="HA">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label8" runat="server" Text='<%# Eval("HA") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Other earning">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label9" runat="server" Text='<%# Eval("Other_Ern") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Leave Deduction">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label10" runat="server" Text='<%# Eval("Leave_Deduction") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Net Pay">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label11" runat="server" Text='<%# Eval("Net_Pay") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Pay Method">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label12" runat="server" Text='<%# Eval("Pay_Method") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Pay Details">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label13" runat="server" Text='<%# Eval("Pay_Details") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </div>
                 </div>
             </section>
@@ -267,6 +336,56 @@
         <title>Employee User Panel</title>
         <link rel="stylesheet" href="css/style-emp.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            /* Grid container */
+            .salary-grid {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+
+            /* Header */
+            .salary-header {
+                background-color: #007bff;
+                color: #fff;
+                text-align: left;
+                padding: 10px;
+                font-weight: bold;
+                border: 1px solid #ddd;
+            }
+
+            /* Rows */
+            .salary-row td,
+            .salary-alt td {
+                padding: 10px;
+                border: 1px solid #ddd;
+            }
+
+            /* Normal row */
+            .salary-row {
+                background-color: #ffffff;
+            }
+
+            /* Alternating row */
+            .salary-alt {
+                background-color: #f9f9f9;
+            }
+
+            /* Hover effect */
+            .salary-grid tr:hover td {
+                background-color: #f1f1f1;
+                cursor: pointer;
+            }
+
+            /* Net Pay column highlight */
+            .salary-grid td:nth-child(10) {
+                font-weight: bold;
+                color: green;
+            }
+        </style>
     </head>
     <body>
         <!-- CSS-only theme toggle checkbox -->

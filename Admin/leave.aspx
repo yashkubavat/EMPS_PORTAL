@@ -117,10 +117,11 @@
             }
 
                 .styled-grid th {
-                    background-color: #4CAF50;
+                    background: linear-gradient(90deg, #4b49ac, #6c63ff);
                     color: white;
                     padding: 10px;
                     text-align: center;
+                    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
                 }
 
                 .styled-grid td {
